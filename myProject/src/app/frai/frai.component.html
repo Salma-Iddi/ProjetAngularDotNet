@@ -1,0 +1,39 @@
+
+
+<div class="container ">
+  <div class="row">
+    <div class="col-md-10 mx-auto"><br>
+<button class="d-flex align-items-end add"  (click)="toggleAddExpenseForm()">Add Expense</button>
+
+<div *ngIf="showAddExpenseForm">
+  <div>
+  <label for="datetime">La date</label>
+  <input type="date" [(ngModel)]="newExpenseDate" required></div>
+  <div>
+  <label for="categorie">categorie</label>
+  <input type="text" [(ngModel)]="newExpenseCategory" required></div>
+  <div>
+  <label for="montant">montant</label>
+  <input type="number" [(ngModel)]="newExpenseMontant" required> <button (click)="addExpense(newExpenseDate, newExpenseCategory, newExpenseMontant)">Add</button>
+</div></div> <br>
+
+<table class="table tbl table-striped m-3 table-bordered ">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Category</th> 
+      <th>Montant</th> 
+      <th  >Actions</th> 
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let expense of expenses">
+      <td>{{ expense.date }}</td>
+      <td>{{ expense.category }}</td>
+      <td>{{ expense.montant }}</td>  <td>
+        <button class="btn bg-primary" (click)="editExpense(expense)">Edit</button>
+        <button class="btn btn3 m-2 btn-danger btn-sm" (click)="deleteExpense(expense.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table></div></div></div>

@@ -1,0 +1,52 @@
+
+<div fxLayout="row" fxLayoutGap="16px">
+  <div fxFlex="50" class="tlbr" fxLayout="column">
+    <mat-toolbar >
+      <button class="menue" mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <h1 class="hh m-3">Personnal Finance manager</h1>
+      <span class="flex-spacer"></span>
+      <button class="btn-no bdg" mat-icon-button>
+        <mat-icon>notifications</mat-icon>
+        <span class="badge badge-danger">3</span>
+      </button>
+    </mat-toolbar>
+    </div>
+  <div fxFlex="50">
+    <mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav class="sideNav" mode="side" closed>
+    <mat-nav-list class="dchb">
+  
+      
+      <a mat-list-item >
+        <mat-icon>dashboard</mat-icon>
+        <span (click)="goToDashboard()">Dashboard</span>
+      </a>
+      <mat-divider></mat-divider>
+      <a mat-list-item  >
+        <mat-icon>badge</mat-icon>
+        <span>Revenu</span>
+      </a>
+      <a mat-list-item>
+        <mat-icon>attach_money</mat-icon>
+        <span (click)=" goToFrai()">Frais</span>
+      </a>
+      <a mat-list-item >
+        <mat-icon>login</mat-icon>
+        <span (click)=" goToLogin()">Login</span>
+      </a>
+      <a mat-list-item>
+        <mat-icon>person_add</mat-icon>
+        <span  (click)=" goToRegister()">Register</span>
+      </a>
+      </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+  </div>
+</div>
+
+
